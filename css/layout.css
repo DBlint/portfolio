@@ -1,3 +1,36 @@
 * {
   box-sizing: border-box;
 }
+
+.socialLinks {
+  text-align: right;
+}
+.dataSections {
+  text-align: center;
+}
+
+.dataSections a {
+  margin: auto;
+  padding-right: 10vw;
+  text-decoration: none;
+  color: black;
+}
+.mainImage {
+  display: inline-block;
+}
+.mainImage img {
+  max-width: 50vw;
+}
+.content {
+  float: right;
+  width: 50vw;
+}
+@media all and (max-width: 400px) {
+  .mainImage {
+    display: block;
+    padding: 0 0 0 0;
+    width: 30vw;
+    margin: auto;
+    float: none;
+  };
+}
