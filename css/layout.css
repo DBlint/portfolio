@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-nav {
+nav section {
   visibility: hidden;
 }
 .mainImage img {
@@ -15,11 +15,22 @@ nav {
   width: 90vw;
   margin: auto;
 }
-
+.hamburger {
+  display: block;
+  text-align: center;
+}
+.fa-bars {
+  font-size: 10vw;
+}
 @media all and (min-width: 600px) {
-  nav {
+  nav section{
     visibility: visible;
   }
+
+  .hamburger {
+    display: none;
+  }
+
   .mainImage {
     width: 50vw;
     display: inline-block;

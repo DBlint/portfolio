@@ -7,7 +7,7 @@ function School(name, start, finish, degree) {
   this.result = degree;
 
   this.addSchool = function(){
-    
+
   }
 }
 
