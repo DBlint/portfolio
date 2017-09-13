@@ -20,3 +20,5 @@ function Project(name, link, description){
 
   }
 }
+
+var projects = [new Project('Bus Mall', 'https://rjb888.github.io/bus-mall/', 'Market research site for the Bus Mall'), new Project('HomeFit', 'https://famavott.github.io/Home-Workout-Generator/index.html','HomeFit is a web app I helped develop which was designed to allow a user to have a personalized workout generated for them based on their desired results.'), new Project('Salmon Cookies', 'https://rjb888.github.io/cookie-stand/','This was a site designed to help an entrapreneur manage his Salmon Cookie shops')];
