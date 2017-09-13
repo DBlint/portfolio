@@ -2,7 +2,10 @@
   box-sizing: border-box;
 }
 nav section {
-  visibility: hidden;
+  display: none;
+}
+.template {
+  display: none;
 }
 .mainImage img {
   display: block;
@@ -24,7 +27,7 @@ nav section {
 }
 @media all and (min-width: 600px) {
   nav section{
-    visibility: visible;
+    display: block;
   }
 
   .hamburger {
