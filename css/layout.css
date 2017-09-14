@@ -25,6 +25,16 @@ nav section {
 .fa-bars {
   font-size: 10vw;
 }
+section.projects {
+  border: thin black solid;
+  background-color: lightgrey;
+}
+
+section.education {
+  border: thin blue solid;
+  background-color: lightblue;
+}
+
 @media all and (min-width: 600px) {
   nav section{
     display: block;
