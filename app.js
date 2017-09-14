@@ -1,12 +1,31 @@
 'use strict';
 var schoolList = [];
 
-$('#portfolio').on('click', showTab);
 
-function showTab(event){
-
+/* Stuff to handle things on the page, manipulate the DOM, etc.  */
+$('#portfolio').on('click', showProjects);
+function showProjects(){
+  $('.content section').hide();
+  $('.projects').show();
+}
+$('#education').on('click', showEducation);
+function showEducation(){
+  $('.content section').hide();
+  $('.education').show();
+}
+$('#home').on('click', showAll);
+function showAll() {
+  $('.content section').show();
+  $('.template').hide();
 }
 
+$('.hamburger').on('click', showNav);
+function showNav(){
+  $('nav section').toggle(400);
+}
+
+
+ /* Stuff to handle the data, and append to page  */
 function School(name, start, finish, degree) {
   this.name = name;
   this.startDate = start;
@@ -35,6 +54,7 @@ var schools = [new School('Cascadia College', '7/7/77', '7/7/80','Javascript Cer
 School.prototype.toHTML = function(){
   var $newSchool = $('.template.education').clone();
   $newSchool.removeClass('template');
+  $newSchool.attr('data-education', '')
   $newSchool.find('h2.name').text(this.name);
   $newSchool.find('p.startDate').text(this.startDate);
   $newSchool.find('p.endDate').text(this.endDate);
@@ -46,6 +66,7 @@ School.prototype.toHTML = function(){
 Project.prototype.toHTML = function(){
   var $newEntry = $('.template.projects ').clone();
   $newEntry.removeClass('template');
+  $newEntry.attr('data-projects', '');
   $newEntry.find('h2').text(this.name);
   $newEntry.find('.link').attr('href', this.url);
   $newEntry.find('.description').text(this.about);
