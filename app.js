@@ -35,7 +35,7 @@ function School(schoolObj) {
 }
 
 function Project(projectObj){
-  this.name = projectObj.name;
+  this.name = projectObj.title;
   this.url = projectObj.url;
   this.about = projectObj.about;
 }
