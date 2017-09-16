@@ -6,7 +6,7 @@
     <script src="https://use.fontawesome.com/32d9ad3552.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" charset="utf-8"></script>
-    <script id="post-template" type="text/x-handlebars-template">
+    <script id="project-template" type="text/x-handlebars-template">
       <!-- template stuff
       template stuff
       template stuff -->
@@ -15,6 +15,17 @@
         <a href="{{ url }}" class="link">{{ name }}</a>
         <p class="description">{{ about }}</p>
         <p class="date">Date Added</p>
+      </section>
+    </script>
+    <script id="school-template" type="text/x-handlebars-template">
+      <!-- template stuff
+      template stuff
+      template stuff -->
+      <section class="template education">
+        <h2 class="name">{{ name }}</h2>
+        <p class="startDate">{{ startDate }}</p>
+        <p class="endDate">{{ endDate }}</p>
+        <p class="award">{{ award }}</p>
       </section>
     </script>
     <link rel="stylesheet" href="css/base.css">
@@ -46,13 +57,13 @@
       <p class="description">Description of the project.</p>
       <p class="date">Date Added</p>
     </section> -->
-    <section class="template education">
+    <!-- <section class="template education">
       <h2 class="name">SchoolName</h2>
       <p class="description">.</p>
       <p class="startDate">Date</p>
       <p class="endDate">Date</p>
       <p class="award">degree-award</p>
-    </section>
+    </section> -->
     <section class="template experience">
       <h2 class="name">tempName</h2>
       <a href="#" class="link">go there</a>

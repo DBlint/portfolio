@@ -24,7 +24,8 @@ $('.hamburger').on('click', showNav);
 function showNav(){
   $('nav section').toggle(400);
 }
-
+rawProjectTemp = $('#project-template').html();
+actualProjectTemp= Handlebars.compile(rawProjectTemp)
 
  /* Stuff to handle the data, and append to page  */
 function School(schoolObj) {
