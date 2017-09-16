@@ -24,33 +24,36 @@ $('.hamburger').on('click', showNav);
 function showNav(){
   $('nav section').toggle(400);
 }
-var rawProjectTemp = $('#project-template').html();
-var actualProjectTemp = Handlebars.compile(rawProjectTemp);
+// var rawProjectTemp = $('#project-template').html();
+var actualProjectTemp = Handlebars.compile($('#project-template').html());
+
+// var rawSchoolTemp = $(`#school-template`).html();
+var actualSchoolTemp = Handlebars.compile($(`#school-template`).html());
 
  /* Stuff to handle the data, and append to page  */
-function School(schoolObj) {
-  this.name = schoolObj.name;
-  this.startDate = schoolObj.startDate;
-  this.endDate = schoolObj.endDate;
-  this.award = schoolObj.award;
-}
+// function School(schoolObj) {
+//   this.name = schoolObj.name;
+//   this.startDate = schoolObj.startDate;
+//   this.endDate = schoolObj.endDate;
+//   this.award = schoolObj.award;
+// }
+//
+// function Project(projectObj){
+//   this.name = projectObj.title;
+//   this.url = projectObj.url;
+//   this.about = projectObj.about;
+// }
 
-function Project(projectObj){
-  this.name = projectObj.title;
-  this.url = projectObj.url;
-  this.about = projectObj.about;
-}
-
-School.prototype.toHTML = function(){
-  var $newSchool = $('.template.education').clone();
-  $newSchool.removeClass('template');
-  $newSchool.attr('data-education', '')
-  $newSchool.find('h2.name').text(this.name);
-  $newSchool.find('p.startDate').text(this.startDate);
-  $newSchool.find('p.endDate').text(this.endDate);
-  $newSchool.find('p.award').text(this.award);
-  return $newSchool;
-}
+// School.prototype.toHTML = function(){
+//   var $newSchool = $('.template.education').clone();
+//   $newSchool.removeClass('template');
+//   $newSchool.attr('data-education', '')
+//   $newSchool.find('h2.name').text(this.name);
+//   $newSchool.find('p.startDate').text(this.startDate);
+//   $newSchool.find('p.endDate').text(this.endDate);
+//   $newSchool.find('p.award').text(this.award);
+//   return $newSchool;
+// }
 
 
 // Project.prototype.toHTML = function(){
@@ -70,11 +73,9 @@ School.prototype.toHTML = function(){
 //   schools.push(new School(school));
 // });
 
-// schools.forEach(function(school){
-//   $('.content').append(school.toHTML());
-// });
-
-// $('.content').append(actualProjectTemp(projectObjects[0]));
+schoolObjects.forEach(function(school){
+  $('.content').append(actualSchoolTemp(school));
+});
 
 projectObjects.forEach(function(project){
   $('.content').append(actualProjectTemp(project));
