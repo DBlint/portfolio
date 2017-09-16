@@ -24,8 +24,8 @@ $('.hamburger').on('click', showNav);
 function showNav(){
   $('nav section').toggle(400);
 }
-rawProjectTemp = $('#project-template').html();
-actualProjectTemp= Handlebars.compile(rawProjectTemp)
+var rawProjectTemp = $('#project-template').html();
+var actualProjectTemp = Handlebars.compile(rawProjectTemp);
 
  /* Stuff to handle the data, and append to page  */
 function School(schoolObj) {
@@ -53,29 +53,31 @@ School.prototype.toHTML = function(){
 }
 
 
-Project.prototype.toHTML = function(){
-  var $newEntry = $('.template.projects ').clone();
-  $newEntry.removeClass('template');
-  $newEntry.attr('data-projects', '');
-  $newEntry.find('h2').text(this.name);
-  $newEntry.find('.url').attr('href', this.url);
-  $newEntry.find('.description').text(this.about);
-  return $newEntry;
-}
+// Project.prototype.toHTML = function(){
+//   var $newEntry = $('.template.projects ').clone();
+//   $newEntry.removeClass('template');
+//   $newEntry.attr('data-projects', '');
+//   $newEntry.find('h2').text(this.name);
+//   $newEntry.find('.url').attr('href', this.url);
+//   $newEntry.find('.description').text(this.about);
+//   return $newEntry;
+//}
+// projectObjects.forEach(function(project){
+//   projects.push(new Project(project));
+// });
+//
+// schoolObjects.forEach(function(school){
+//   schools.push(new School(school));
+// });
+
+// schools.forEach(function(school){
+//   $('.content').append(school.toHTML());
+// });
+
+// $('.content').append(actualProjectTemp(projectObjects[0]));
+
 projectObjects.forEach(function(project){
-  projects.push(new Project(project));
-});
-
-schoolObjects.forEach(function(school){
-  schools.push(new School(school));
-});
-
-schools.forEach(function(school){
-  $('.content').append(school.toHTML());
-});
-
-projects.forEach(function(project){
-  $('.content').append(project.toHTML());
+  $('.content').append(actualProjectTemp(project));
 });
 
 /*
