@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width"/>
     <script src="https://use.fontawesome.com/32d9ad3552.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" charset="utf-8"></script>
+    <script id="project-template" type="text/x-handlebars-template">
+      <!-- template stuff
+      template stuff
+      template stuff -->
+      <section class="template projects">
+        <h2 class="name">{{ name }}</h2>
+        <a href="{{ url }}" class="link">{{ name }}</a>
+        <p class="description">{{ about }}</p>
+        <p class="date">Date Added</p>
+      </section>
+    </script>
+    <script id="school-template" type="text/x-handlebars-template">
+      <!-- template stuff
+      template stuff
+      template stuff -->
+      <section class="template education">
+        <h2 class="name">{{ name }}</h2>
+        <p class="startDate">{{ startDate }}</p>
+        <p class="endDate">{{ endDate }}</p>
+        <p class="award">{{ award }}</p>
+      </section>
+    </script>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/module.css">
@@ -28,19 +51,19 @@
     <img src="http://baconmockup.com/300/200" alt="">
   </div>
   <div class="content">
-    <section class="template projects">
+    <!-- <section class="template projects">
       <h2 class="name">tempName</h2>
       <a href="#" class="link">go there</a>
       <p class="description">Description of the project.</p>
       <p class="date">Date Added</p>
-    </section>
-    <section class="template education">
+    </section> -->
+    <!-- <section class="template education">
       <h2 class="name">SchoolName</h2>
       <p class="description">.</p>
       <p class="startDate">Date</p>
       <p class="endDate">Date</p>
       <p class="award">degree-award</p>
-    </section>
+    </section> -->
     <section class="template experience">
       <h2 class="name">tempName</h2>
       <a href="#" class="link">go there</a>
@@ -49,5 +72,7 @@
     </section>
   </div>
   </body>
+  <script type="text/javascript" src="data.js"></script>
   <script type="text/javascript" src="app.js"></script>
+
 </html>

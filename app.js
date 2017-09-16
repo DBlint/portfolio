@@ -1,6 +1,7 @@
 'use strict';
-var schoolList = [];
-
+/* Global var Declarations */
+var schools = [];
+var projects = [];
 
 /* Stuff to handle things on the page, manipulate the DOM, etc.  */
 $('#portfolio').on('click', showProjects);
@@ -23,33 +24,22 @@ $('.hamburger').on('click', showNav);
 function showNav(){
   $('nav section').toggle(400);
 }
-
+rawProjectTemp = $('#project-template').html();
+actualProjectTemp= Handlebars.compile(rawProjectTemp)
 
  /* Stuff to handle the data, and append to page  */
-function School(name, start, finish, degree) {
-  this.name = name;
-  this.startDate = start;
-  this.endDate = finish;
-  this.award = degree;
-
-  this.addSchool = function(){
-    schoolList.push(this);
-  }
+function School(schoolObj) {
+  this.name = schoolObj.name;
+  this.startDate = schoolObj.startDate;
+  this.endDate = schoolObj.endDate;
+  this.award = schoolObj.award;
 }
 
-function Project(name, link, description){
-  this.name = name;
-  this.url = link;
-  this.about = description;
-
-  this.addProject = function() {
-    // projects.push(this);
-  }
+function Project(projectObj){
+  this.name = projectObj.title;
+  this.url = projectObj.url;
+  this.about = projectObj.about;
 }
-
-var projects = [new Project('Bus Mall', 'https://rjb888.github.io/bus-mall/', 'Market research site for the Bus Mall'), new Project('HomeFit', 'https://famavott.github.io/Home-Workout-Generator/index.html','HomeFit is a web app I helped develop which was designed to allow a user to have a personalized workout generated for them based on their desired results.'), new Project('Salmon Cookies', 'https://rjb888.github.io/cookie-stand/','This was a site designed to help an entrapreneur manage his Salmon Cookie shops')];
-
-var schools = [new School('Cascadia College', '7/7/77', '7/7/80','Javascript Certificate'), new School('Code Fellows', '8/7/17', '', '')];
 
 School.prototype.toHTML = function(){
   var $newSchool = $('.template.education').clone();
@@ -68,10 +58,18 @@ Project.prototype.toHTML = function(){
   $newEntry.removeClass('template');
   $newEntry.attr('data-projects', '');
   $newEntry.find('h2').text(this.name);
-  $newEntry.find('.link').attr('href', this.url);
+  $newEntry.find('.url').attr('href', this.url);
   $newEntry.find('.description').text(this.about);
   return $newEntry;
 }
+projectObjects.forEach(function(project){
+  projects.push(new Project(project));
+});
+
+schoolObjects.forEach(function(school){
+  schools.push(new School(school));
+});
+
 schools.forEach(function(school){
   $('.content').append(school.toHTML());
 });
@@ -79,3 +77,14 @@ schools.forEach(function(school){
 projects.forEach(function(project){
   $('.content').append(project.toHTML());
 });
+
+/*
+
+rawData.forEach(function(articleObject) {
+  articles.push(new Article(articleObject));
+});
+
+articles.forEach(function(article){
+  $('#articles').append(article.toHtml());
+});
+*/
