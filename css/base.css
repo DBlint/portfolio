@@ -50,3 +50,7 @@ table {
 nav {
   background-color: lightblue;
 }
+
+* {
+  box-sizing: border-box;
+}
