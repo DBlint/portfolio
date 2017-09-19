@@ -40,49 +40,36 @@ Project.prototype.toHTML = function(){
   var content = Handlebars.compile($('#project-template').html());
   return content(this);
 }
-Project.prototype.render = function() {
-  projects.forEach(function(project){
-    $('.content').append(project.toHTML());
-  });
-}
 School.prototype.toHTML = function(){
   var content = Handlebars.compile($('#school-template').html());
   return content(this);
 }
-School.prototype.render = function() {
-  schools.forEach(function(school){
-    $('.content').append(school.toHTML());
+function render(dataArray){
+  dataArray.forEach(function(singleData){
+    $('.content').append(singleData.toHTML());
   });
 }
-// schoolObjects.forEach(function(object){
-//   schools.push(new School(object));
-// });
-// projectObjects.forEach(function(object){
-//   projects.push(new Project(object));
-// })
-
-
 if (localStorage.projectData){
-  JSON.parse(localStorage.projects).forEach(function(object){ projects.push(new Project(object)); });
+  JSON.parse(localStorage.projectData).forEach(function(object){ projects.push(new Project(object)); });
+  render(projects);
 }else {
-  $.get(`data/projects.json`, function(result){
-    localStorage.set('projectData', JSON.stringify(result));
+  $.get('data/projects.json', function(result){
+    localStorage.setItem('projectData', JSON.stringify(result));
     result.forEach(function(object){
       projects.push(new Project(object));
     });
+    render(projects);
   });
-  projects.render();
 }
-
-
 if (localStorage.schoolData){
-  JSON.parse(localStorage.schools).forEach(function(object){schools.push(new School(object)); });
+  JSON.parse(localStorage.schoolData).forEach(function(object){schools.push(new School(object)); });
+  render(schools);
 }else {
-  $.get(`data/schools.json`, function(result){
-    localStorage.set('schoolData', JSON.stringify(result));
+  $.get('data/schools.json', function(result){
+    localStorage.setItem('schoolData', JSON.stringify(result));
     result.forEach(function(object){
       schools.push(new School(object));
     });
+    render(schools);
   });
-  schools.render();
 }
