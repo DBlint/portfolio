@@ -40,22 +40,49 @@ Project.prototype.toHTML = function(){
   var content = Handlebars.compile($('#project-template').html());
   return content(this);
 }
+Project.prototype.render = function() {
+  projects.forEach(function(project){
+    $('.content').append(project.toHTML());
+  });
+}
 School.prototype.toHTML = function(){
   var content = Handlebars.compile($('#school-template').html());
   return content(this);
 }
+School.prototype.render = function() {
+  schools.forEach(function(school){
+    $('.content').append(school.toHTML());
+  });
+}
+// schoolObjects.forEach(function(object){
+//   schools.push(new School(object));
+// });
+// projectObjects.forEach(function(object){
+//   projects.push(new Project(object));
+// })
 
-schoolObjects.forEach(function(object){
-  schools.push(new School(object));
-});
-projectObjects.forEach(function(object){
-  projects.push(new Project(object));
-})
 
-schools.forEach(function(school){
-  $('.content').append(school.toHTML());
-});
+if (localStorage.projectData){
+  JSON.parse(localStorage.projects).forEach(function(object){ projects.push(new Project(object)); });
+}else {
+  $.get(`data/projects.json`, function(result){
+    localStorage.set('projectData', JSON.stringify(result));
+    result.forEach(function(object){
+      projects.push(new Project(object));
+    });
+  });
+  projects.render();
+}
 
-projects.forEach(function(project){
-  $('.content').append(project.toHTML());
-});
+
+if (localStorage.schoolData){
+  JSON.parse(localStorage.schools).forEach(function(object){schools.push(new School(object)); });
+}else {
+  $.get(`data/schools.json`, function(result){
+    localStorage.set('schoolData', JSON.stringify(result));
+    result.forEach(function(object){
+      schools.push(new School(object));
+    });
+  });
+  schools.render();
+}
