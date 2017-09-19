@@ -44,18 +44,32 @@ School.prototype.toHTML = function(){
   var content = Handlebars.compile($('#school-template').html());
   return content(this);
 }
-
-schoolObjects.forEach(function(object){
-  schools.push(new School(object));
-});
-projectObjects.forEach(function(object){
-  projects.push(new Project(object));
-})
-
-schools.forEach(function(school){
-  $('.content').append(school.toHTML());
-});
-
-projects.forEach(function(project){
-  $('.content').append(project.toHTML());
-});
+function render(dataArray){
+  dataArray.forEach(function(singleData){
+    $('.content').append(singleData.toHTML());
+  });
+}
+if (localStorage.projectData){
+  JSON.parse(localStorage.projectData).forEach(function(object){ projects.push(new Project(object)); });
+  render(projects);
+}else {
+  $.get('data/projects.json', function(result){
+    localStorage.setItem('projectData', JSON.stringify(result));
+    result.forEach(function(object){
+      projects.push(new Project(object));
+    });
+    render(projects);
+  });
+}
+if (localStorage.schoolData){
+  JSON.parse(localStorage.schoolData).forEach(function(object){schools.push(new School(object)); });
+  render(schools);
+}else {
+  $.get('data/schools.json', function(result){
+    localStorage.setItem('schoolData', JSON.stringify(result));
+    result.forEach(function(object){
+      schools.push(new School(object));
+    });
+    render(schools);
+  });
+}

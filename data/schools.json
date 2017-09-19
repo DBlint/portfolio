@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Cascadia College",
+    "startDate": "7/7/77",
+    "endDate": "7/7/80",
+    "award": "Javascript Certificate"
+  },
+  {
+    "name": "Code Fellows",
+    "startDate": "8/7/17",
+    "endDate": "Current",
+    "award": "pending"
+  }
+]
