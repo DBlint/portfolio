@@ -16,7 +16,6 @@ function showEducation(){
 $('#home').on('click', showAll);
 function showAll() {
   $('.content section').show();
-  $('.template').hide();
 }
 
 $('.hamburger').on('click', showNav);

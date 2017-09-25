@@ -12,6 +12,13 @@ nav section {
   margin:auto;
   float: none;
 }
+.dataSections a {
+  margin: auto;
+  padding-right: 10vw;
+  font-size: 4vw;
+  text-decoration: none;
+  color: black;
+}
 .content {
   width: 90vw;
   margin: auto;
@@ -34,7 +41,8 @@ section.education {
 /*Separate media query section*/
 @media all and (min-width: 600px) {
   nav section{
-    display: block;
+    display: block !important;
+
   }
   .hamburger {
     display: none;
@@ -54,14 +62,10 @@ section.education {
   }
   .socialLinks {
     text-align: right;
+    padding-right: 10px;
   }
   .dataSections {
     text-align: center;
   }
-  .dataSections a {
-    margin: auto;
-    padding-right: 10vw;
-    text-decoration: none;
-    color: black;
-  }
+
 }
