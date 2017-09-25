@@ -1,7 +1,7 @@
 'use strict';
-/* Global var Declarations */
-var schools = [];
-var projects = [];
+/* Global let Declarations */
+let schools = [];
+let projects = [];
 
 $('#portfolio').on('click', showProjects);
 function showProjects(){
@@ -36,11 +36,11 @@ function School(schoolObj) {
 }
 
 Project.prototype.toHTML = function(){
-  var content = Handlebars.compile($('#project-template').html());
+  let content = Handlebars.compile($('#project-template').html());
   return content(this);
 }
 School.prototype.toHTML = function(){
-  var content = Handlebars.compile($('#school-template').html());
+  let content = Handlebars.compile($('#school-template').html());
   return content(this);
 }
 function render(dataArray){
