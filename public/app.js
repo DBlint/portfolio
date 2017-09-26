@@ -3,6 +3,9 @@
 let schools = [];
 let projects = [];
 
+//change some stuff
+
+
 $('#portfolio').on('click', showProjects);
 function showProjects(){
   $('.content section').hide();
