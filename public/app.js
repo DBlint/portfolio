@@ -31,6 +31,7 @@ var app = app || {};
     this.url = projectObj.url;
     this.about = projectObj.about;
   }
+
   function School(schoolObj) {
     this.name = schoolObj.name;
     this.startDate = schoolObj.startDate;
@@ -75,4 +76,13 @@ var app = app || {};
       render(schools);
     });
   }
+  let projectWordCount = () => {
+    return projects
+        .map((project) => project.about.split(' '))
+        .reduce((sum, words) => {
+          return sum + words.length;
+        }, 0);
+  }
+  $('.content').append(`<p> Project word count: ${projectWordCount()}`);
+
 })(app)
