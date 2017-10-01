@@ -28,32 +28,33 @@ var app = app || {};
     $('nav section').toggle(400);
   }
 
-  function Project(projectObj){
-    this.name = projectObj.title;
-    this.url = projectObj.url;
-    this.about = projectObj.about;
-  }
+  // function Project(projectObj){
+  //   this.name = projectObj.title;
+  //   this.url = projectObj.url;
+  //   this.about = projectObj.about;
+  // }
+  //
+  // function School(schoolObj) {
+  //   this.name = schoolObj.name;
+  //   this.startDate = schoolObj.startDate;
+  //   this.endDate = schoolObj.endDate;
+  //   this.award = schoolObj.award;
+  // }
+  //
+  // Project.prototype.toHTML = function(){
+  //   let content = Handlebars.compile($('#project-template').html());
+  //   return content(this);
+  // }
+  // School.prototype.toHTML = function(){
+  //   let content = Handlebars.compile($('#school-template').html());
+  //   return content(this);
+  // }
+  // function render(dataArray){
+  //   dataArray.forEach(function(singleData){
+  //     $('.content').append(singleData.toHTML());
+  //   });
+  // }
 
-  function School(schoolObj) {
-    this.name = schoolObj.name;
-    this.startDate = schoolObj.startDate;
-    this.endDate = schoolObj.endDate;
-    this.award = schoolObj.award;
-  }
-
-  Project.prototype.toHTML = function(){
-    let content = Handlebars.compile($('#project-template').html());
-    return content(this);
-  }
-  School.prototype.toHTML = function(){
-    let content = Handlebars.compile($('#school-template').html());
-    return content(this);
-  }
-  function render(dataArray){
-    dataArray.forEach(function(singleData){
-      $('.content').append(singleData.toHTML());
-    });
-  }
   if (localStorage.projectData){
     JSON.parse(localStorage.projectData).forEach(function(object){ projects.push(new Project(object)); });
     render(projects);
@@ -78,13 +79,15 @@ var app = app || {};
       render(schools);
     });
   }
-  let projectWordCount = () => {
-    return projects
-        .map((project) => project.about.split(' '))
-        .reduce((sum, words) => {
-          return sum + words.length;
-        }, 0);
-  }
-  $('.content').append(`<p> Project word count: ${projectWordCount()}`);
+
+  // let projectWordCount = () => {
+  //   return projects
+  //     .map((project) => project.about.split(' '))
+  //     .reduce((sum, words) => {
+  //       return sum + words.length;
+  //     }, 0);
+  // }
+
+  // $('.content').append(`<p> Project word count: ${projectWordCount()}`);
 
 })(app)
