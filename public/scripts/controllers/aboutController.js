@@ -16,6 +16,7 @@ var app = app || {};
     $('.content section').show();
   }
 
-//}  wrap the bling into the .index() function.
+  //}  wrap the bling into the .index() function.
+  module.aboutController = aboutController;
 
 })(app);

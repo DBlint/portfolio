@@ -27,6 +27,7 @@ var app = app || {};
     $('.projects').show();
   }
 
-//}  wrap the bling into the .index() function.
+  //}  wrap the bling into the .index() function.
+  module.projectController = projectController;
 
 })(app);

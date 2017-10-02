@@ -26,7 +26,7 @@ var app = app || {};
   }
 
 
-
+  module.schoolController = schoolController;
 //}  wrap the bling into the .index() function.
 
 })(app);
