@@ -3,30 +3,30 @@
 var app = app || {};
 (function(module){
 
+  //
+  // let schools = [];
+  // let projects = [];
+  //
 
-  let schools = [];
-  let projects = [];
+  // $('#portfolio').on('click', showProjects);
+  // function showProjects(){
+  //   $('.content section').hide();
+  //   $('.projects').show();
+  // }
+  // $('#education').on('click', showEducation);
+  // function showEducation(){
+  //   $('.content section').hide();
+  //   $('.education').show();
+  // }
+  // $('#home').on('click', showAll);
+  // function showAll() {
+  //   $('.content section').show();
+  // }
 
-
-  $('#portfolio').on('click', showProjects);
-  function showProjects(){
-    $('.content section').hide();
-    $('.projects').show();
-  }
-  $('#education').on('click', showEducation);
-  function showEducation(){
-    $('.content section').hide();
-    $('.education').show();
-  }
-  $('#home').on('click', showAll);
-  function showAll() {
-    $('.content section').show();
-  }
-
-  $('.hamburger').on('click', showNav);
-  function showNav(){
-    $('nav section').toggle(400);
-  }
+  // $('.hamburger').on('click', showNav);
+  // function showNav(){
+  //   $('nav section').toggle(400);
+  // }
 
   // function Project(projectObj){
   //   this.name = projectObj.title;
@@ -55,30 +55,30 @@ var app = app || {};
   //   });
   // }
 
-  if (localStorage.projectData){
-    JSON.parse(localStorage.projectData).forEach(function(object){ projects.push(new Project(object)); });
-    render(projects);
-  }else {
-    $.get('data/projects.json', function(result){
-      localStorage.setItem('projectData', JSON.stringify(result));
-      projects = result.map(function(obj){
-        return new Project(obj)
-      });
-      render(projects);
-    });
-  }
-  if (localStorage.schoolData){
-    JSON.parse(localStorage.schoolData).forEach(function(object){schools.push(new School(object)); });
-    render(schools);
-  }else {
-    $.get('data/schools.json', function(result){
-      localStorage.setItem('schoolData', JSON.stringify(result));
-      result.forEach(function(object){
-        schools.push(new School(object));
-      });
-      render(schools);
-    });
-  }
+  // if (localStorage.projectData){
+  //   JSON.parse(localStorage.projectData).forEach(function(object){ projects.push(new Project(object)); });
+  //   render(projects);
+  // }else {
+  //   $.get('data/projects.json', function(result){
+  //     localStorage.setItem('projectData', JSON.stringify(result));
+  //     projects = result.map(function(obj){
+  //       return new Project(obj)
+  //     });
+  //     render(projects);
+  //   });
+  // }
+  // if (localStorage.schoolData){
+  //   JSON.parse(localStorage.schoolData).forEach(function(object){schools.push(new School(object)); });
+  //   render(schools);
+  // }else {
+  //   $.get('data/schools.json', function(result){
+  //     localStorage.setItem('schoolData', JSON.stringify(result));
+  //     result.forEach(function(object){
+  //       schools.push(new School(object));
+  //     });
+  //     render(schools);
+  //   });
+  // }
 
   // let projectWordCount = () => {
   //   return projects
