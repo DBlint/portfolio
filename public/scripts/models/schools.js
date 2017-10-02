@@ -18,6 +18,6 @@ var app = app || {};
     let content = Handlebars.compile($('#school-template').html());
     return content(this);
   }
-module.School = School;
+  module.School = School;
 
 })(app)
