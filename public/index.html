@@ -23,6 +23,20 @@
         <p class="award">{{ award }}</p>
       </section>
     </script>
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank">
+          <h3>{{ name }}</h3>
+        </a>
+        <p>Description: {{ description }}</p>
+        <p>Language: {{ language }}</p>
+        <p>Created: {{ created_at }}</p>
+        <p>Last updated: {{ updated_at }}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
@@ -54,10 +68,10 @@
   <script type="text/javascript" src="scripts/models/schools.js"></script>
   <script type="text/javascript" src="scripts/models/about.js"></script>
 
-  <script type="text/javascript" src="scripts/controllers/routes.js"></script>
   <script type="text/javascript" src="scripts/controllers/schoolsController.js"></script>
   <script type="text/javascript" src="scripts/controllers/aboutController.js"></script>
   <script type="text/javascript" src="scripts/controllers/projectsController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/routes.js"></script>
 
   <script type="text/javascript" src="scripts/views/aboutView.js"></script>
   <script type="text/javascript" src="scripts/views/projectsView.js"></script>

@@ -12,7 +12,7 @@ var app = app || {};
   }
 
   //$('#home').on('click', showAll);
-  module.aboutController.showAll = function() {
+  aboutController.showAll = function() {
     $('.content section').show();
   }
 

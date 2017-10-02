@@ -1,8 +1,7 @@
 'use strict'
 
 var app = app || {};
-
-page('/', app.aboutController.showAll);
+page('/', app.aboutController.index);
 page('/schools', app.schoolController.showEducation);
 page('/projects', app.projectController.showProjects);
 //page('/repos', somecontroller to show repos from GH);

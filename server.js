@@ -11,7 +11,7 @@ APP.get('/', function(request, response){
   response.sendFile('index.html', {root: './public'});
 });
 
-app.get('/github/*', proxyGitHub);
+APP.get('/github/*', proxyGitHub);
 
 function proxyGitHub(req, res, next){
   (requestProxy({
@@ -22,7 +22,7 @@ function proxyGitHub(req, res, next){
   }))(req, res);
 }
 
-app.get('*', (request, response) => {
+APP.get('*', (request, response) => {
   response.sendFile('index.html', { root: './public'})
 })
 

@@ -28,4 +28,6 @@ var app = app || {};
       }, 0);
   }
 
+  module.Project = Project;
+
 })(app)
