@@ -4,7 +4,7 @@ var app = app || {};
 
 (function(module){
 
-
-  $('.content').append(`<p> Project word count:     ${projectWordCount()}`);
+  app.projectController.index();
+  $('.content').append(`<p> Project word count: ${module.projectWordCount()}`);
 
 })(app)

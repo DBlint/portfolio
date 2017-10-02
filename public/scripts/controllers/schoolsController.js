@@ -7,15 +7,15 @@ var app = app || {};
   const schoolController = {};
 
   schoolController.index = function() {if (localStorage.schoolData){
-    JSON.parse(localStorage.schoolData).forEach(function(object){app.School.all.push(new app.School(object)); });
-    app.render(app.School.all);
+    JSON.parse(localStorage.schoolData).forEach(function(object){module.School.all.push(new module.School(object)); });
+    module.render(module.School.all);
   }else {
     $.get('data/schools.json', function(result){
       localStorage.setItem('schoolData', JSON.stringify(result));
       result.forEach(function(object){
-        app.School.all.push(new app.School(object));
+        module.School.all.push(new module.School(object));
       });
-      app.render(app.School.all);
+      module.render(module.School.all);
     });
   }}
 

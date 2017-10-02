@@ -20,7 +20,7 @@ var app = app || {};
   }
 
 
-  let projectWordCount = () => {
+  module.projectWordCount = () => {
     return Project.all
       .map((project) => project.about.split(' '))
       .reduce((sum, words) => {
