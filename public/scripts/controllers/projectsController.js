@@ -8,15 +8,15 @@ var app = app || {};
 
   projectController.index = function(){
     if (localStorage.projectData){
-      JSON.parse(localStorage.projectData).forEach(function(object){ app.Project.all.push(new app.Project(object)); });
-      app.render(app.Project.all);
+      JSON.parse(localStorage.projectData).forEach(function(object){ module.Project.all.push(new module.Project(object)); });
+      module.render(module.Project.all);
     }else {
       $.get('data/projects.json', function(result){
         localStorage.setItem('projectData', JSON.stringify(result));
-        app.Project.all = result.map(function(obj){
-          return new app.Project(obj)
+        module.Project.all = result.map(function(obj){
+          return new module.Project(obj)
         });
-        app.render(app.Project.all);
+        module.render(module.Project.all);
       });
     }
   }

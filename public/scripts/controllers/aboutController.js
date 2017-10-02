@@ -6,10 +6,13 @@ var app = app || {};
 
   const aboutController = {};
 
-  aboutController.index = {[{[ call all functions to get and display projects]}]}
+  aboutController.index = function(){
+    app.projectController.index();
+    app.schoolController.index();
+  }
 
   //$('#home').on('click', showAll);
-  aboutController.showAll = function() {
+  module.aboutController.showAll = function() {
     $('.content section').show();
   }
 
